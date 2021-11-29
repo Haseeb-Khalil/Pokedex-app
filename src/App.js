@@ -1,23 +1,29 @@
-import logo from "./logo.svg";
 import "./App.css";
+import Logo from "./Logo";
+import CaughtPokemon from "./CaughtPokemon";
+import PokemonMovesSelector from "./PokemonMovesSelector";
+import PokemonCity from "./PokemonCity";
 
+const BestPokemon = () => {
+  let abilities = ["Anticipation", "Adaptability", "Run-Away"];
+  return (
+    <ul>
+      {abilities.map((ability, index) => (
+        <li key={index}>{ability}</li>
+      ))}
+    </ul>
+  );
+};
 function App() {
+  let date = new Date().toLocaleDateString();
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Logo id={"016"} name={"Haseeb"} />
+      <BestPokemon />
+      <CaughtPokemon todayDate={date} />
+      <PokemonMovesSelector />
+      <PokemonCity />
     </div>
   );
 }
